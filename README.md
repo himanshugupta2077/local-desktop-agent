@@ -1,80 +1,554 @@
-# OmniParser: Screen Parsing tool for Pure Vision Based GUI Agent
+# Local Desktop Agent
 
-<p align="center">
-  <img src="imgs/logo.png" alt="Logo">
-</p>
-<!-- <a href="https://trendshift.io/repositories/12975" target="_blank"><img src="https://trendshift.io/api/badge/repositories/12975" alt="microsoft%2FOmniParser | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a> -->
+A fully local desktop-use AI agent that interacts with a computer using only screenshots, mouse movements, and keyboard input.
 
-[![arXiv](https://img.shields.io/badge/Paper-green)](https://arxiv.org/abs/2408.00203)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+The project is designed to mimic how a human uses a computer:
 
-📢 [[Project Page](https://microsoft.github.io/OmniParser/)] [[V2 Blog Post](https://www.microsoft.com/en-us/research/articles/omniparser-v2-turning-any-llm-into-a-computer-use-agent/)] [[Models V2](https://huggingface.co/microsoft/OmniParser-v2.0)] [[Models V1.5](https://huggingface.co/microsoft/OmniParser)] [[HuggingFace Space Demo](https://huggingface.co/spaces/microsoft/OmniParser-v2)]
+```text
+See Screen
+↓
+Understand UI
+↓
+Reason About Goal
+↓
+Move Mouse / Press Keys
+↓
+Observe Result
+```
 
-**OmniParser** is a comprehensive method for parsing user interface screenshots into structured and easy-to-understand elements, which significantly enhances the ability of GPT-4V to generate actions that can be accurately grounded in the corresponding regions of the interface. 
+No browser APIs, accessibility APIs, or application-specific integrations are used.
 
-## News
-- [2025/3] We support local logging of trajecotry so that you can use OmniParser+OmniTool to build training data pipeline for your favorate agent in your domain. [Documentation WIP]
-- [2025/3] We are gradually adding multi agents orchstration and improving user interface in OmniTool for better experience.
-- [2025/2] We release OmniParser V2 [checkpoints](https://huggingface.co/microsoft/OmniParser-v2.0). [Watch Video](https://1drv.ms/v/c/650b027c18d5a573/EWXbVESKWo9Buu6OYCwg06wBeoM97C6EOTG6RjvWLEN1Qg?e=alnHGC)
-- [2025/2] We introduce OmniTool: Control a Windows 11 VM with OmniParser + your vision model of choice. OmniTool supports out of the box the following large language models - OpenAI (4o/o1/o3-mini), DeepSeek (R1), Qwen (2.5VL) or Anthropic Computer Use. [Watch Video](https://1drv.ms/v/c/650b027c18d5a573/EehZ7RzY69ZHn-MeQHrnnR4BCj3by-cLLpUVlxMjF4O65Q?e=8LxMgX)
-- [2025/1] V2 is coming. We achieve new state of the art results 39.5% on the new grounding benchmark [Screen Spot Pro](https://github.com/likaixin2000/ScreenSpot-Pro-GUI-Grounding/tree/main) with OmniParser v2 (will be released soon)! Read more details [here](https://github.com/microsoft/OmniParser/tree/master/docs/Evaluation.md).
-- [2024/11] We release an updated version, OmniParser V1.5 which features 1) more fine grained/small icon detection, 2) prediction of whether each screen element is interactable or not. Examples in the demo.ipynb. 
-- [2024/10] OmniParser was the #1 trending model on huggingface model hub (starting 10/29/2024). 
-- [2024/10] Feel free to checkout our demo on [huggingface space](https://huggingface.co/spaces/microsoft/OmniParser)! (stay tuned for OmniParser + Claude Computer Use)
-- [2024/10] Both Interactive Region Detection Model and Icon functional description model are released! [Hugginface models](https://huggingface.co/microsoft/OmniParser)
-- [2024/09] OmniParser achieves the best performance on [Windows Agent Arena](https://microsoft.github.io/WindowsAgentArena/)! 
+The agent operates entirely from visual information.
 
-## Install 
-First clone the repo, and then install environment:
+---
+
+# Features
+
+* Local execution
+* Screenshot-based perception
+* OmniParser-powered UI detection
+* Gemma3 reasoning engine
+* Mouse automation using PyAutoGUI
+* Modular architecture
+* Works on Arch Linux + KDE Plasma Wayland
+* No cloud dependency
+
+---
+
+# Hardware Used
+
+```text
+CPU: Intel i7-12700H
+GPU: RTX 3060 Mobile (6GB VRAM)
+RAM: 16GB
+OS: Arch Linux
+Desktop: KDE Plasma Wayland
+```
+
+---
+
+# Models Used
+
+## Reasoning
+
+```text
+gemma3:4b
+```
+
+via Ollama.
+
+## UI Understanding
+
+```text
+Microsoft OmniParser
+```
+
+running through the official Gradio server.
+
+---
+
+# Architecture
+
+```text
+User Goal
+    ↓
+agent.py
+    ↓
+screenshot.py
+    ↓
+omniparse_cli.py
+    ↓
+OmniParser Server
+    ↓
+elements.json
+    ↓
+planner.py
+    ↓
+Action JSON
+    ↓
+executor.py
+    ↓
+Desktop
+```
+
+---
+
+# Repository Structure
+
+```text
+.
+├── agent.py
+├── planner.py
+├── executor.py
+├── screenshot.py
+├── omniparse_cli.py
+├── omniparser_runs/
+└── README.md
+```
+
+---
+
+# Component Overview
+
+## agent.py
+
+Main orchestrator.
+
+Responsibilities:
+
+* Accept user goal
+* Capture screenshot
+* Parse UI elements
+* Request next action from planner
+* Execute action
+
+Flow:
+
+```text
+Goal
+↓
+Screenshot
+↓
+Parse
+↓
+Plan
+↓
+Execute
+```
+
+---
+
+## screenshot.py
+
+Captures the current desktop.
+
+Uses KDE Spectacle through DBus.
+
+Output:
+
+```text
+~/Pictures/Screenshots/
+```
+
+Example:
+
+```bash
+qdbus6 org.kde.Spectacle / org.kde.Spectacle.FullScreen false
+```
+
+---
+
+## omniparse_cli.py
+
+Client for OmniParser.
+
+Responsibilities:
+
+* Connect to local OmniParser server
+* Submit screenshot
+* Parse results
+* Generate structured UI elements
+
+Output:
+
+```json
+{
+  "id": 45,
+  "name": "Firefox browser.",
+  "type": "icon",
+  "pixel_center": [201,1414]
+}
+```
+
+Generated files:
+
+```text
+omniparser_runs/
+├── labeled.webp
+├── parsed_elements.txt
+├── elements.json
+└── input.png
+```
+
+---
+
+## planner.py
+
+Reasoning layer.
+
+Uses:
+
+```text
+gemma3:4b
+```
+
+Input:
+
+```text
+Goal:
+Click Back
+
+Available Elements:
+
+[12] Back
+[11] Forward
+```
+
+Output:
+
+```json
+{
+  "action": "click",
+  "target_id": 12
+}
+```
+
+Planner never executes actions.
+
+It only decides what action should be taken next.
+
+---
+
+## executor.py
+
+Action execution layer.
+
+Current supported actions:
+
+```text
+click
+keypress
+hotkey
+type
+```
+
+Example:
+
+```json
+{
+  "action": "click",
+  "target_id": 45
+}
+```
+
+↓
+
 ```python
-cd OmniParser
-conda create -n "omni" python==3.12
+pyautogui.moveTo(201, 1414)
+pyautogui.click()
+```
+
+---
+
+# Installation
+
+## Clone Repository
+
+```bash
+git clone https://github.com/yourname/local-desktop-agent.git
+cd local-desktop-agent
+```
+
+---
+
+## Create Environment
+
+```bash
+conda create -n omni python=3.12
 conda activate omni
-pip install -r requirements.txt
 ```
 
-Ensure you have the V2 weights downloaded in weights folder (ensure caption weights folder is called icon_caption_florence). If not download them with:
+---
+
+## Install Dependencies
+
+```bash
+pip install ollama
+pip install pyautogui
+pip install pillow
+pip install gradio_client
 ```
-   # download the model checkpoints to local directory OmniParser/weights/
-   for f in icon_detect/{train_args.yaml,model.pt,model.yaml} icon_caption/{config.json,generation_config.json,model.safetensors}; do huggingface-cli download microsoft/OmniParser-v2.0 "$f" --local-dir weights; done
-   mv weights/icon_caption weights/icon_caption_florence
-```
 
-<!-- ## [deprecated]
-Then download the model ckpts files in: https://huggingface.co/microsoft/OmniParser, and put them under weights/, default folder structure is: weights/icon_detect, weights/icon_caption_florence, weights/icon_caption_blip2. 
+Install any additional dependencies required by OmniParser.
 
-For v1: 
-convert the safetensor to .pt file. 
-```python
-python weights/convert_safetensor_to_pt.py
+---
 
-For v1.5: 
-download 'model_v1_5.pt' from https://huggingface.co/microsoft/OmniParser/tree/main/icon_detect_v1_5, make a new dir: weights/icon_detect_v1_5, and put it inside the folder. No weight conversion is needed. 
-``` -->
+# OmniParser Setup
 
-## Examples:
-We put together a few simple examples in the demo.ipynb. 
+Clone and setup Microsoft OmniParser.
 
-## Gradio Demo
-To run gradio demo, simply run:
-```python
+Verify the server starts:
+
+```bash
 python gradio_demo.py
 ```
 
-## Model Weights License
-For the model checkpoints on huggingface model hub, please note that icon_detect model is under AGPL license since it is a license inherited from the original yolo model. And icon_caption_blip2 & icon_caption_florence is under MIT license. Please refer to the LICENSE file in the folder of each model: https://huggingface.co/microsoft/OmniParser.
+Expected:
 
-## 📚 Citation
-Our technical report can be found [here](https://arxiv.org/abs/2408.00203).
-If you find our work useful, please consider citing our work:
+```text
+Running on local URL:
+http://127.0.0.1:7861
 ```
-@misc{lu2024omniparserpurevisionbased,
-      title={OmniParser for Pure Vision Based GUI Agent}, 
-      author={Yadong Lu and Jianwei Yang and Yelong Shen and Ahmed Awadallah},
-      year={2024},
-      eprint={2408.00203},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2408.00203}, 
+
+---
+
+# Ollama Setup
+
+Verify Ollama is running:
+
+```bash
+curl http://127.0.0.1:11434/api/tags
+```
+
+Expected response:
+
+```json
+{
+  "models": [...]
 }
 ```
+
+Pull Gemma:
+
+```bash
+ollama pull gemma3:4b
+```
+
+---
+
+# Running
+
+Terminal 1:
+
+```bash
+conda activate omni
+python gradio_demo.py
+```
+
+Terminal 2:
+
+```bash
+conda activate omni
+python agent.py
+```
+
+Enter a goal:
+
+```text
+Goal: Click Back
+```
+
+---
+
+# Example Flow
+
+Goal:
+
+```text
+Click Back
+```
+
+OmniParser:
+
+```text
+[12] Back
+```
+
+Planner:
+
+```json
+{
+  "action":"click",
+  "target_id":12
+}
+```
+
+Executor:
+
+```text
+Move Mouse
+↓
+Click
+```
+
+Result:
+
+```text
+Browser navigates back
+```
+
+---
+
+# Current Status
+
+Working:
+
+* Screenshot capture
+* OmniParser integration
+* UI element extraction
+* Goal-based planning
+* Mouse movement
+* Mouse clicking
+* Coordinate mapping
+
+In Progress:
+
+* Keyboard shortcuts
+* Multi-step planning
+* Agent feedback loop
+* Task completion detection
+* Memory
+* Reflection
+* Autonomous execution
+
+---
+
+# Known Limitations
+
+## UI Semantics
+
+Some controls may not be labeled accurately.
+
+Example:
+
+```text
++
+```
+
+may become:
+
+```text
+Add
+```
+
+instead of:
+
+```text
+New Tab
+```
+
+This can reduce planner accuracy.
+
+---
+
+## Display Scaling
+
+KDE display scaling affects coordinate accuracy.
+
+Current tested configuration:
+
+```text
+Display Scale = 100%
+```
+
+Using 105% scaling caused click offsets.
+
+---
+
+## Resource Usage
+
+OmniParser can consume significant RAM.
+
+Recommended:
+
+```text
+16 GB RAM minimum
+32 GB swapfile
+```
+
+Current test machine:
+
+```text
+16 GB RAM
+32 GB swap enabled
+```
+
+---
+
+# Future Roadmap
+
+## Phase 1
+
+Single-step actions
+
+```text
+Goal
+↓
+Action
+↓
+Execute
+```
+
+Status: Complete
+
+---
+
+## Phase 2
+
+Feedback loop
+
+```text
+Goal
+↓
+Action
+↓
+Execute
+↓
+Observe
+↓
+Repeat
+```
+
+Status: Planned
+
+---
+
+## Phase 3
+
+Vision-enhanced reasoning
+
+Combine:
+
+```text
+Screenshot
++
+OmniParser Elements
++
+Goal
+```
+
+using a vision-language model.
+
+Potential models:
+
+```text
+qwen3-vl:4b
+qwen3-vl:8b
+qwen2.5vl:3b
+```
+
+---
+
+# License
+
+MIT License
