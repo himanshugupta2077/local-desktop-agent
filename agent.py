@@ -27,6 +27,8 @@ from executor import execute
 
 from PIL import Image
 
+from debug_stats import snapshot
+
 GOAL = input("Goal: ")
 
 
@@ -60,7 +62,7 @@ def parse_screen(image_path: str):
     return elements
 
 def main():
-
+    snapshot("before_run")
     print("\n[1/4] Capturing screenshot...")
 
     ARM_DELAY = 5
@@ -86,6 +88,7 @@ def main():
     elements = parse_screen(screenshot_path)
 
     print(f"Found {len(elements)} elements")
+    snapshot("after_omniparser")
 
     # print("\nDetected Elements:")
     # print("-" * 80)
@@ -122,6 +125,7 @@ def main():
     )
 
     print("\nDone.")
+    snapshot("after_run")
 
 
 if __name__ == "__main__":
