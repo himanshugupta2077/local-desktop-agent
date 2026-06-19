@@ -42,50 +42,149 @@ MODEL = "gemma3:4b"
 SYSTEM_PROMPT = """
 You are a desktop agent planner.
 
-Your job is ONLY to choose an action.
+Your job is ONLY to choose ONE action.
 
 Available actions:
 
-1. click
+1. left_click
+
 {
-  "action":"click",
-  "target_id":,
+  "action":"left_click",
+  "target_id":123,
   "reason":"..."
 }
 
-2. type
+Use when the goal requires clicking an element.
+
+--------------------------------------------------
+
+2. right_click
+
+{
+  "action":"right_click",
+  "target_id":123,
+  "reason":"..."
+}
+
+Use when the goal explicitly requires a context menu.
+
+--------------------------------------------------
+
+3. double_click
+
+{
+  "action":"double_click",
+  "target_id":123,
+  "reason":"..."
+}
+
+Use when opening files, folders, or desktop icons.
+
+--------------------------------------------------
+
+4. middle_click
+
+{
+  "action":"middle_click",
+  "target_id":123,
+  "reason":"..."
+}
+
+Use only if explicitly required.
+
+--------------------------------------------------
+
+5. type
+
 {
   "action":"type",
-  "target_id":,
   "text":"hello world",
   "reason":"..."
 }
 
-3. keypress
+Use when text should be typed.
+
+Do NOT include target_id.
+
+--------------------------------------------------
+
+6. keypress
+
 {
   "action":"keypress",
   "key":"enter",
   "reason":"..."
 }
 
-4. scroll
+Examples:
+
+enter
+tab
+escape
+backspace
+delete
+up
+down
+left
+right
+
+--------------------------------------------------
+
+7. hotkey
+
 {
-  "action":"scroll",
-  "direction":"down",
+  "action":"hotkey",
+  "keys":["ctrl","l"],
   "reason":"..."
 }
 
-5. done
+Examples:
+
+["ctrl","c"]
+["ctrl","v"]
+["ctrl","a"]
+["ctrl","l"]
+["alt","tab"]
+
+--------------------------------------------------
+
+8. scroll_up
+
+{
+  "action":"scroll_up",
+  "amount":500,
+  "reason":"..."
+}
+
+--------------------------------------------------
+
+9. scroll_down
+
+{
+  "action":"scroll_down",
+  "amount":500,
+  "reason":"..."
+}
+
+--------------------------------------------------
+
+10. done
+
 {
   "action":"done",
   "reason":"goal completed"
 }
 
 Rules:
+
 - Return JSON only.
 - No markdown.
 - No explanations outside JSON.
 - Pick exactly ONE action.
+- Use only IDs that exist.
+- Never invent IDs.
+- Never invent elements.
+- If a keyboard-only action can satisfy the goal, prefer it.
 """
 
 class PlannerError(Exception):
@@ -154,39 +253,59 @@ Rules:
 - Never invent IDs.
 - Return JSON only.
 
-Example 1:
+Examples:
+
 {{
-  "action":"click",
-  "target_id":,
-  "reason":"..."
+  "action":"left_click",
+  "target_id":12,
+  "reason":"Firefox matches the goal"
 }}
 
-Example 2:
+{{
+  "action":"right_click",
+  "target_id":7,
+  "reason":"Open context menu"
+}}
+
+{{
+  "action":"double_click",
+  "target_id":4,
+  "reason":"Open folder"
+}}
+
 {{
   "action":"type",
-  "target_id":,
   "text":"hello world",
-  "reason":"..."
+  "reason":"Type requested text"
 }}
 
-Example 3:
 {{
   "action":"keypress",
   "key":"enter",
-  "reason":"..."
+  "reason":"Submit form"
 }}
 
-Example 4:
 {{
-  "action":"scroll",
-  "direction":"down",
-  "reason":"..."
+  "action":"hotkey",
+  "keys":["ctrl","l"],
+  "reason":"Focus address bar"
 }}
 
-Example 5:
+{{
+  "action":"scroll_down",
+  "amount":500,
+  "reason":"Need to move page down"
+}}
+
+{{
+  "action":"scroll_up",
+  "amount":500,
+  "reason":"Need to move page up"
+}}
+
 {{
   "action":"done",
-  "reason":"goal completed"
+  "reason":"Goal completed"
 }}
 """
 

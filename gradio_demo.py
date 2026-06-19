@@ -5,6 +5,7 @@ import numpy as np
 import torch
 from PIL import Image
 import io
+import gc
 
 
 import base64, os
@@ -52,10 +53,25 @@ def process(
     ocr_bbox_rslt, is_goal_filtered = check_ocr_box(image_input, display_img = False, output_bb_format='xyxy', goal_filtering=None, easyocr_args={'paragraph': False, 'text_threshold':0.9}, use_paddleocr=use_paddleocr)
     text, ocr_bbox = ocr_bbox_rslt
     dino_labled_img, label_coordinates, parsed_content_list = get_som_labeled_img(image_input, yolo_model, BOX_TRESHOLD = box_threshold, output_coord_in_ratio=True, ocr_bbox=ocr_bbox,draw_bbox_config=draw_bbox_config, caption_model_processor=caption_model_processor, ocr_text=text,iou_threshold=iou_threshold, imgsz=imgsz,)  
-    image = Image.open(io.BytesIO(base64.b64decode(dino_labled_img)))
+
+
+    image = Image.open(
+        io.BytesIO(
+            base64.b64decode(
+                dino_labled_img
+            )
+        )
+    )
+
     print('finish processing')
-    parsed_content_list = '\n'.join([f'icon {i}: ' + str(v) for i,v in enumerate(parsed_content_list)])
-    # parsed_content_list = str(parsed_content_list)
+
+    parsed_content_list = '\n'.join(
+        [
+            f'icon {i}: ' + str(v)
+            for i, v in enumerate(parsed_content_list)
+        ]
+    )
+
     return image, str(parsed_content_list)
 
 with gr.Blocks() as demo:
@@ -94,3 +110,16 @@ with gr.Blocks() as demo:
 
 # demo.launch(debug=False, show_error=True, share=True)
 demo.launch(share=True, server_port=7861, server_name='127.0.0.1')
+
+def cleanup():
+
+    gc.collect()
+
+    if torch.cuda.is_available():
+
+        torch.cuda.empty_cache()
+
+        try:
+            torch.cuda.ipc_collect()
+        except Exception:
+            pass

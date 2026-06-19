@@ -17,7 +17,7 @@ Executor
 Single-action version.
 """
 
-import json
+import json, time
 import subprocess
 from pathlib import Path
 
@@ -59,10 +59,22 @@ def parse_screen(image_path: str):
 
     return elements
 
-
 def main():
 
     print("\n[1/4] Capturing screenshot...")
+
+    ARM_DELAY = 5
+
+    print(
+        f"\nStarting capturing screenshot in {ARM_DELAY} seconds..."
+    )
+
+    for i in range(ARM_DELAY, 0, -1):
+        print(f"{i}...")
+        time.sleep(1)
+
+    print("Capturing now...")
+
     screenshot_path = capture_screen()
 
     img = Image.open(screenshot_path)
@@ -70,7 +82,7 @@ def main():
     # print("\nScreenshot Size:")
     # print(img.size)
 
-    print("[2/4] Parsing screen...")
+    print("\n[2/4] Parsing screen...\n")
     elements = parse_screen(screenshot_path)
 
     print(f"Found {len(elements)} elements")

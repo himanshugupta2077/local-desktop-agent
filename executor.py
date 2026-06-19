@@ -1,109 +1,245 @@
 import pyautogui
 
-# TEMPORARY FOR DEBUGGING
-# Disable corner failsafe while testing.
-# Remove later if desired.
 pyautogui.FAILSAFE = False
+
+
+def _find_target(target_id, elements):
+
+    target = next(
+        (
+            e
+            for e in elements
+            if e["id"] == target_id
+        ),
+        None,
+    )
+
+    if target is None:
+        print(f"ERROR: target_id {target_id} not found")
+        return None
+
+    pixel_center = target.get("pixel_center")
+
+    if not pixel_center:
+        print("ERROR: pixel_center missing")
+        return None
+
+    return target
+
+
+def _move_to_target(target):
+
+    x, y = target["pixel_center"]
+
+    print(f"\nMoving mouse to: {x}, {y}")
+
+    pyautogui.moveTo(
+        x,
+        y,
+        duration=0.5,
+    )
+
+    return x, y
 
 
 def execute(action, elements):
 
     print("\n=== EXECUTOR ===")
-    print("Action:")
     print(action)
 
     action_type = action.get("action")
 
-    if action_type == "click":
+    # ------------------------
+    # LEFT CLICK
+    # ------------------------
 
-        target_id = action.get("target_id")
+    if action_type == "left_click":
 
-        target = next(
-            (
-                e
-                for e in elements
-                if e["id"] == target_id
-            ),
-            None,
+        target = _find_target(
+            action.get("target_id"),
+            elements,
         )
 
-        if target is None:
-            print(f"ERROR: target_id {target_id} not found")
+        if not target:
             return
 
-        print("\nTarget Element:")
-        print(target)
-
-        pixel_center = target.get("pixel_center")
-
-        if not pixel_center:
-            print("ERROR: pixel_center missing")
-            return
-
-        x, y = pixel_center
-
-        screen_w, screen_h = pyautogui.size()
-
-        print("\nScreen Size:")
-        print(f"{screen_w} x {screen_h}")
-
-        print("\nTarget Coordinates:")
-        print(f"x={x}, y={y}")
-
-        if x < 0 or x > screen_w:
-            print("WARNING: x outside screen bounds")
-
-        if y < 0 or y > screen_h:
-            print("WARNING: y outside screen bounds")
-
-        current_x, current_y = pyautogui.position()
-
-        print("\nCurrent Mouse Position:")
-        print(f"{current_x}, {current_y}")
-
-        print("\nMoving mouse...")
-
-        pyautogui.moveTo(
-            x,
-            y,
-            duration=0.5,
-        )
-
-        pyautogui.moveTo(x, y, duration=1)
-
-        real_x, real_y = pyautogui.position()
-
-        print(f"Requested: {x}, {y}")
-        print(f"Actual:    {real_x}, {real_y}")
-
-        print("Clicking...")
+        x, y = _move_to_target(target)
 
         pyautogui.click(
-            x,
-            y,
+            x=x,
+            y=y,
+            button="left",
         )
 
-        print("Done.")
+    # ------------------------
+    # RIGHT CLICK
+    # ------------------------
 
-    elif action_type == "keypress":
+    elif action_type == "right_click":
 
-        key = action.get("key")
+        target = _find_target(
+            action.get("target_id"),
+            elements,
+        )
 
-        print(f"Pressing key: {key}")
+        if not target:
+            return
 
-        pyautogui.press(key)
+        x, y = _move_to_target(target)
 
-    elif action_type == "hotkey":
+        pyautogui.click(
+            x=x,
+            y=y,
+            button="right",
+        )
 
-        keys = action.get("keys", [])
+    # ------------------------
+    # DOUBLE CLICK
+    # ------------------------
 
-        print(f"Pressing hotkey: {keys}")
+    elif action_type == "double_click":
 
-        pyautogui.hotkey(*keys)
+        target = _find_target(
+            action.get("target_id"),
+            elements,
+        )
+
+        if not target:
+            return
+
+        x, y = _move_to_target(target)
+
+        pyautogui.doubleClick(
+            x=x,
+            y=y,
+            button="left",
+        )
+
+    # ------------------------
+    # MIDDLE CLICK
+    # ------------------------
+
+    elif action_type == "middle_click":
+
+        target = _find_target(
+            action.get("target_id"),
+            elements,
+        )
+
+        if not target:
+            return
+
+        x, y = _move_to_target(target)
+
+        pyautogui.click(
+            x=x,
+            y=y,
+            button="middle",
+        )
+
+    # ------------------------
+    # MOVE MOUSE
+    # ------------------------
+
+    elif action_type == "move_mouse":
+
+        target = _find_target(
+            action.get("target_id"),
+            elements,
+        )
+
+        if not target:
+            return
+
+        _move_to_target(target)
+
+    # ------------------------
+    # DRAG
+    # ------------------------
+
+    elif action_type == "drag":
+
+        start_x = action.get("start_x")
+        start_y = action.get("start_y")
+
+        end_x = action.get("end_x")
+        end_y = action.get("end_y")
+
+        duration = action.get(
+            "duration",
+            0.5,
+        )
+
+        print(
+            f"Dragging from "
+            f"({start_x},{start_y}) "
+            f"to "
+            f"({end_x},{end_y})"
+        )
+
+        pyautogui.moveTo(
+            start_x,
+            start_y,
+            duration=0.2,
+        )
+
+        pyautogui.dragTo(
+            end_x,
+            end_y,
+            duration=duration,
+            button="left",
+        )
+
+    # ------------------------
+    # SCROLL DOWN
+    # ------------------------
+
+    elif action_type == "scroll_down":
+
+        amount = action.get(
+            "amount",
+            500,
+        )
+
+        print(
+            f"Scrolling down "
+            f"({amount})"
+        )
+
+        pyautogui.scroll(
+            -abs(amount)
+        )
+
+    # ------------------------
+    # SCROLL UP
+    # ------------------------
+
+    elif action_type == "scroll_up":
+
+        amount = action.get(
+            "amount",
+            500,
+        )
+
+        print(
+            f"Scrolling up "
+            f"({amount})"
+        )
+
+        pyautogui.scroll(
+            abs(amount)
+        )
+
+    # ------------------------
+    # TYPE
+    # ------------------------
 
     elif action_type == "type":
 
-        text = action.get("text", "")
+        text = action.get(
+            "text",
+            "",
+        )
 
         print(f"Typing: {text}")
 
@@ -112,31 +248,53 @@ def execute(action, elements):
             interval=0.02,
         )
 
+    # ------------------------
+    # KEYPRESS
+    # ------------------------
+
+    elif action_type == "keypress":
+
+        key = action.get("key")
+
+        print(
+            f"Pressing key: {key}"
+        )
+
+        pyautogui.press(key)
+
+    # ------------------------
+    # HOTKEY
+    # ------------------------
+
+    elif action_type == "hotkey":
+
+        keys = action.get(
+            "keys",
+            [],
+        )
+
+        print(
+            f"Pressing hotkey: {keys}"
+        )
+
+        pyautogui.hotkey(*keys)
+
+    # ------------------------
+    # DONE
+    # ------------------------
+
+    elif action_type == "done":
+
+        print(
+            action.get(
+                "reason",
+                "Task complete."
+            )
+        )
+
     else:
 
         print(
             f"Unknown action type: "
             f"{action_type}"
         )
-
-
-if __name__ == "__main__":
-
-    test_action = {
-        "action": "click",
-        "target_id": 1,
-    }
-
-    test_elements = [
-        {
-            "id": 1,
-            "pixel_center": [500, 500],
-            "name": "Test Button",
-            "type": "button",
-        }
-    ]
-
-    execute(
-        test_action,
-        test_elements,
-    )
