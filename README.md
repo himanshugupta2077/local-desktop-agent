@@ -549,6 +549,144 @@ qwen2.5vl:3b
 
 ---
 
+# Dependencies
+
+This project is built on top of several open-source projects and models.
+
+## Core Components
+
+### Microsoft OmniParser
+
+UI element detection and screen understanding.
+
+Repository: https://github.com/microsoft/OmniParser
+
+Used for:
+
+* OCR
+* Icon detection
+* UI element localization
+* Bounding box extraction
+
+---
+
+### Ollama
+
+Local model serving framework.
+
+Website: https://ollama.com
+Repository: https://github.com/ollama/ollama
+
+Used for:
+
+* Running Gemma locally
+* Running Qwen locally
+* Model inference API
+
+---
+
+### Gemma 3
+
+Reasoning model used by the planner.
+
+Model: https://ollama.com/library/gemma3
+
+Used for:
+
+* Goal interpretation
+* Action selection
+* Next-step planning
+
+---
+
+### PyAutoGUI
+
+Mouse and keyboard automation.
+
+Repository: https://github.com/asweigart/pyautogui
+
+Used for:
+
+* Mouse movement
+* Mouse clicks
+* Keyboard input
+* Hotkeys
+
+---
+
+### Gradio Client
+
+Communication with the OmniParser server.
+
+Repository: https://github.com/gradio-app/gradio
+
+Used for:
+
+* Calling OmniParser endpoints
+* Receiving parsed UI results
+
+---
+
+## Attribution
+
+This project would not be possible without the work of:
+
+* Microsoft OmniParser
+* Ollama
+* Google DeepMind (Gemma)
+* Alibaba Qwen Team
+* PyAutoGUI
+* Gradio
+* Pillow
+
+Please review the licenses of all dependencies before redistribution or commercial use.
+
+# Notice
+
+This repository is not affiliated with or endorsed by Microsoft.
+
+UI understanding capabilities are provided through Microsoft OmniParser, which is distributed under its own license and maintained separately by its authors.
+
+
 # License
 
-MIT License
+## Project Code
+
+Unless otherwise stated, the original source code in this repository is licensed under the PolyForm Noncommercial License 1.0.0.
+
+You may:
+
+* Use the software for personal, educational, and research purposes
+* Modify the software
+* Share the software and modifications
+
+You may not:
+
+* Use the software commercially
+* Provide the software as a service
+* Integrate the software into commercial products
+* Use the software for client work or internal business operations
+
+Commercial licensing is available separately from the author.
+
+---
+
+## Third-Party Dependencies
+
+This project depends on Microsoft OmniParser and other third-party software.
+
+Third-party components remain licensed under their respective licenses and are not relicensed by this repository.
+
+Microsoft OmniParser is distributed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
+
+Users are responsible for reviewing and complying with all applicable third-party license terms.
+
+---
+
+## Attribution
+
+If you use this project, please provide attribution to:
+
+* This repository
+* Microsoft OmniParser
+* Any other third-party projects required by your distribution
