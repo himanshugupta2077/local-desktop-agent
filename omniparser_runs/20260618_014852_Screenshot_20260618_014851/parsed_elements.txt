@@ -1,0 +1,36 @@
+icon 0: {'type': 'text', 'bbox': [0.4292968809604645, 0.0020833334419876337, 0.46992188692092896, 0.02013888955116272], 'interactivity': False, 'content': 'himanshu@msi:*', 'source': 'box_ocr_content_ocr'}
+icon 1: {'type': 'text', 'bbox': [0.10507812350988388, 0.02777777798473835, 0.15000000596046448, 0.04791666567325592], 'interactivity': False, 'content': ' python agent.py', 'source': 'box_ocr_content_ocr'}
+icon 2: {'type': 'text', 'bbox': [0.573046863079071, 0.02777777798473835, 0.676953136920929, 0.04583333432674408], 'interactivity': False, 'content': '-/project-tool-scripts-whatnot/OmniParser', 'source': 'box_ocr_content_ocr'}
+icon 3: {'type': 'text', 'bbox': [0.0031250000465661287, 0.05486110970377922, 0.11992187798023224, 0.07916666567325592], 'interactivity': False, 'content': '(base) msi:OmniParser (', 'source': 'box_ocr_content_ocr'}
+icon 4: {'type': 'text', 'bbox': [0.11562500149011612, 0.0590277761220932, 0.17929688096046448, 0.07916666567325592], 'interactivity': False, 'content': '(master*) $', 'source': 'box_ocr_content_ocr'}
+icon 5: {'type': 'icon', 'bbox': [0.24926753342151642, 0.017462359741330147, 0.5030887126922607, 0.052843548357486725], 'interactivity': True, 'content': ' python gradio_demo.py ', 'source': 'box_yolo_content_ocr'}
+icon 6: {'type': 'icon', 'bbox': [0.08657584339380264, 0.9673731327056885, 0.10657840967178345, 0.9993223547935486], 'interactivity': True, 'content': 'Sketchup', 'source': 'box_yolo_content_yolo'}
+icon 7: {'type': 'icon', 'bbox': [0.17041298747062683, 0.9683120846748352, 0.1897030621767044, 0.998518705368042], 'interactivity': True, 'content': 'Google Chrome web browser.', 'source': 'box_yolo_content_yolo'}
+icon 8: {'type': 'icon', 'bbox': [0.06481226533651352, 0.9673773646354675, 0.08527705818414688, 0.9990322589874268], 'interactivity': True, 'content': 'Firefox browser.', 'source': 'box_yolo_content_yolo'}
+icon 9: {'type': 'icon', 'bbox': [0.758124053478241, 0.9695794582366943, 0.7858260869979858, 0.9981773495674133], 'interactivity': True, 'content': '1, September, 2024', 'source': 'box_yolo_content_yolo'}
+icon 10: {'type': 'icon', 'bbox': [0.13095152378082275, 0.9692252278327942, 0.14660890400409698, 0.9976038336753845], 'interactivity': True, 'content': 'WhatsApp', 'source': 'box_yolo_content_yolo'}
+icon 11: {'type': 'icon', 'bbox': [0.9807317852973938, 0.0, 0.9896612167358398, 0.018725652247667313], 'interactivity': True, 'content': 'Diamond', 'source': 'box_yolo_content_yolo'}
+icon 12: {'type': 'icon', 'bbox': [0.022837165743112564, 0.9671624302864075, 0.04379123076796532, 0.9989681839942932], 'interactivity': True, 'content': 'Image gallery.', 'source': 'box_yolo_content_yolo'}
+icon 13: {'type': 'icon', 'bbox': [0.8441270589828491, 0.9745309352874756, 0.8528118133544922, 0.9929437637329102], 'interactivity': True, 'content': 'Notifications', 'source': 'box_yolo_content_yolo'}
+icon 14: {'type': 'icon', 'bbox': [0.004877286497503519, 0.9669933915138245, 0.02242378517985344, 0.9991487264633179], 'interactivity': True, 'content': 'More options', 'source': 'box_yolo_content_yolo'}
+icon 15: {'type': 'icon', 'bbox': [0.04442727565765381, 0.9669976234436035, 0.06448062509298325, 0.9990695714950562], 'interactivity': True, 'content': 'Microsoft Edge', 'source': 'box_yolo_content_yolo'}
+icon 16: {'type': 'icon', 'bbox': [0.10823662579059601, 0.9683317542076111, 0.12661416828632355, 0.9983430504798889], 'interactivity': True, 'content': 'Microsoft 365', 'source': 'box_yolo_content_yolo'}
+icon 17: {'type': 'icon', 'bbox': [0.15146560966968536, 0.9677340984344482, 0.16871757805347443, 0.9975264072418213], 'interactivity': True, 'content': 'Movies', 'source': 'box_yolo_content_yolo'}
+icon 18: {'type': 'icon', 'bbox': [0.7853568196296692, 0.9693286418914795, 0.811638355255127, 0.9983861446380615], 'interactivity': True, 'content': '2, September, 2024', 'source': 'box_yolo_content_yolo'}
+icon 19: {'type': 'icon', 'bbox': [0.9906173944473267, 0.0, 0.9993332028388977, 0.020229648798704147], 'interactivity': True, 'content': 'Close', 'source': 'box_yolo_content_yolo'}
+icon 20: {'type': 'icon', 'bbox': [0.8556486964225769, 0.9748328924179077, 0.8646532893180847, 0.9920560121536255], 'interactivity': True, 'content': 'Bricks', 'source': 'box_yolo_content_yolo'}
+icon 21: {'type': 'icon', 'bbox': [0.9503035545349121, 0.9692039489746094, 0.9767983555793762, 0.9991618394851685], 'interactivity': True, 'content': '1:48:AM, 18/06/26', 'source': 'box_yolo_content_yolo'}
+icon 22: {'type': 'icon', 'bbox': [0.8674192428588867, 0.9751540422439575, 0.8766786456108093, 0.9920400977134705], 'interactivity': True, 'content': 'Signed by S&W', 'source': 'box_yolo_content_yolo'}
+icon 23: {'type': 'icon', 'bbox': [0.9251238703727722, 0.9712255001068115, 0.9354130625724792, 0.9977381229400635], 'interactivity': True, 'content': 'WiFi', 'source': 'box_yolo_content_yolo'}
+icon 24: {'type': 'icon', 'bbox': [0.9141384363174438, 0.971375048160553, 0.9232967495918274, 0.9975587725639343], 'interactivity': True, 'content': 'Stocks', 'source': 'box_yolo_content_yolo'}
+icon 25: {'type': 'icon', 'bbox': [0.936750590801239, 0.9712144732475281, 0.9477049112319946, 0.998570442199707], 'interactivity': True, 'content': 'M0,5L9,5 4.5,5z', 'source': 'box_yolo_content_yolo'}
+icon 26: {'type': 'icon', 'bbox': [0.8793304562568665, 0.9749428629875183, 0.8884605169296265, 0.9923741817474365], 'interactivity': True, 'content': 'Form', 'source': 'box_yolo_content_yolo'}
+icon 27: {'type': 'icon', 'bbox': [0.9807979464530945, 0.9678143262863159, 0.9956766366958618, 0.9992321729660034], 'interactivity': True, 'content': 'Rectangle', 'source': 'box_yolo_content_yolo'}
+icon 28: {'type': 'icon', 'bbox': [0.011298999190330505, 0.0016145785339176655, 0.018971264362335205, 0.016136707738041878], 'interactivity': True, 'content': 'Paint bucket', 'source': 'box_yolo_content_yolo'}
+icon 29: {'type': 'icon', 'bbox': [0.000410519540309906, 0.001495104399509728, 0.009336409159004688, 0.015574232675135136], 'interactivity': True, 'content': 'Windows.', 'source': 'box_yolo_content_yolo'}
+icon 30: {'type': 'icon', 'bbox': [0.9714201092720032, 0.0, 0.9798768758773804, 0.018807511776685715], 'interactivity': True, 'content': 'Ribbon', 'source': 'box_yolo_content_yolo'}
+icon 31: {'type': 'icon', 'bbox': [0.89069002866745, 0.9744150638580322, 0.8996626138687134, 0.9937059283256531], 'interactivity': True, 'content': 'Speaker', 'source': 'box_yolo_content_yolo'}
+icon 32: {'type': 'icon', 'bbox': [0.8131345510482788, 0.9692060947418213, 0.8383092880249023, 0.9981640577316284], 'interactivity': True, 'content': '3, September, 2024', 'source': 'box_yolo_content_yolo'}
+icon 33: {'type': 'icon', 'bbox': [0.0003112219274044037, 0.9672425985336304, 0.004781957715749741, 0.9976852536201477], 'interactivity': True, 'content': 'M0,0L9,0 4.5,5z', 'source': 'box_yolo_content_yolo'}
+icon 34: {'type': 'icon', 'bbox': [0.9946960210800171, 0.02321458049118519, 0.9988071322441101, 0.04784593731164932], 'interactivity': True, 'content': 'M0,0L9,0 4.5,5z', 'source': 'box_yolo_content_yolo'}
+icon 35: {'type': 'icon', 'bbox': [0.9007976651191711, 0.9975382685661316, 0.9130222201347351, 1.0], 'interactivity': True, 'content': 'M0,0L9,0 4.5,5z', 'source': 'box_yolo_content_yolo'}

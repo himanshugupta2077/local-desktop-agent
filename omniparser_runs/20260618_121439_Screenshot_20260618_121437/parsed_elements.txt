@@ -1,0 +1,108 @@
+icon 0: {'type': 'text', 'bbox': [0.17812499403953552, 0.0020833334419876337, 0.22382812201976776, 0.02013888955116272], 'interactivity': False, 'content': 'himanshu@msi~/p', 'source': 'box_ocr_content_ocr'}
+icon 1: {'type': 'text', 'bbox': [0.7230468988418579, 0.0020833334419876337, 0.780078113079071, 0.02013888955116272], 'interactivity': False, 'content': 'OmniParser -- Dolphin', 'source': 'box_ocr_content_ocr'}
+icon 2: {'type': 'text', 'bbox': [0.05507812649011612, 0.02361111156642437, 0.11874999850988388, 0.04930555447936058], 'interactivity': False, 'content': 'Python gradio demo.py', 'source': 'box_ocr_content_ocr'}
+icon 3: {'type': 'text', 'bbox': [0.22812500596046448, 0.02777777798473835, 0.2718749940395355, 0.04791666567325592], 'interactivity': False, 'content': ' python agent.py', 'source': 'box_ocr_content_ocr'}
+icon 4: {'type': 'text', 'bbox': [0.5687500238418579, 0.02361111156642437, 0.6800781488418579, 0.04791666567325592], 'interactivity': False, 'content': ' project-ool-cripts-whatnot > OmniParser', 'source': 'box_ocr_content_ocr'}
+icon 5: {'type': 'text', 'bbox': [0.9449218511581421, 0.02569444477558136, 0.985546886920929, 0.04583333432674408], 'interactivity': False, 'content': ' split Q', 'source': 'box_ocr_content_ocr'}
+icon 6: {'type': 'text', 'bbox': [0.033203125, 0.05694444477558136, 0.17695312201976776, 0.08055555820465088], 'interactivity': False, 'content': ' msi:OmniParser (master*) $', 'source': 'box_ocr_content_ocr'}
+icon 7: {'type': 'text', 'bbox': [0.951953113079071, 0.1840277761220932, 0.9644531011581421, 0.20069444179534912], 'interactivity': False, 'content': 'util', 'source': 'box_ocr_content_ocr'}
+icon 8: {'type': 'text', 'bbox': [0.5042968988418579, 0.28125, 0.536328136920929, 0.3013888895511627], 'interactivity': False, 'content': ' Network', 'source': 'box_ocr_content_ocr'}
+icon 9: {'type': 'text', 'bbox': [0.661328136920929, 0.31041666865348816, 0.6792968511581421, 0.3305555582046509], 'interactivity': False, 'content': ' imgs', 'source': 'box_ocr_content_ocr'}
+icon 10: {'type': 'text', 'bbox': [0.734375, 0.3125, 0.751171886920929, 0.3270833194255829], 'interactivity': False, 'content': ' eval', 'source': 'box_ocr_content_ocr'}
+icon 11: {'type': 'text', 'bbox': [0.8050781488418579, 0.3125, 0.823046863079071, 0.3270833194255829], 'interactivity': False, 'content': 'docs', 'source': 'box_ocr_content_ocr'}
+icon 12: {'type': 'text', 'bbox': [0.873046875, 0.3090277910232544, 0.8999999761581421, 0.3291666805744171], 'interactivity': False, 'content': ' notes.md', 'source': 'box_ocr_content_ocr'}
+icon 13: {'type': 'text', 'bbox': [0.5035156011581421, 0.32152777910232544, 0.5445312261581421, 0.34583333134651184], 'interactivity': False, 'content': ' Recent Files', 'source': 'box_ocr_content_ocr'}
+icon 14: {'type': 'text', 'bbox': [0.798828125, 0.4277777671813965, 0.8304687738418579, 0.4583333432674408], 'interactivity': False, 'content': 'executor.py', 'source': 'box_ocr_content_ocr'}
+icon 15: {'type': 'text', 'bbox': [0.658203125, 0.43541666865348816, 0.682421863079071, 0.4555555582046509], 'interactivity': False, 'content': ' agent.py', 'source': 'box_ocr_content_ocr'}
+icon 16: {'type': 'text', 'bbox': [0.5894531011581421, 0.5625, 0.610546886920929, 0.5770833492279053], 'interactivity': False, 'content': 'HELP.md', 'source': 'box_ocr_content_ocr'}
+icon 17: {'type': 'text', 'bbox': [0.645703136920929, 0.5611110925674438, 0.6968749761581421, 0.5770833492279053], 'interactivity': False, 'content': 'config.example.yaml', 'source': 'box_ocr_content_ocr'}
+icon 18: {'type': 'text', 'bbox': [0.7250000238418579, 0.5590277910232544, 0.760546863079071, 0.5791666507720947], 'interactivity': False, 'content': 'SECURITY.md', 'source': 'box_ocr_content_ocr'}
+icon 19: {'type': 'text', 'bbox': [0.871874988079071, 0.5625, 0.8980468511581421, 0.5756944417953491], 'interactivity': False, 'content': 'README.m', 'source': 'box_ocr_content_ocr'}
+icon 20: {'type': 'text', 'bbox': [0.9457031488418579, 0.5625, 0.96875, 0.5770833492279053], 'interactivity': False, 'content': 'LICENSE', 'source': 'box_ocr_content_ocr'}
+icon 21: {'type': 'text', 'bbox': [0.579296886920929, 0.6854166388511658, 0.619921863079071, 0.7055555582046509], 'interactivity': False, 'content': 'gradio_demo.py', 'source': 'box_ocr_content_ocr'}
+icon 22: {'type': 'text', 'bbox': [0.655078113079071, 0.6854166388511658, 0.685546875, 0.7055555582046509], 'interactivity': False, 'content': 'demo.ipynb', 'source': 'box_ocr_content_ocr'}
+icon 23: {'type': 'icon', 'bbox': [0.7868335843086243, 0.09191332757472992, 0.8421056866645813, 0.20857742428779602], 'interactivity': True, 'content': ' omniparser_li ', 'source': 'box_yolo_content_ocr'}
+icon 24: {'type': 'icon', 'bbox': [0.714425265789032, 0.09115634858608246, 0.7708972692489624, 0.20925508439540863], 'interactivity': True, 'content': '_pycache_ ', 'source': 'box_yolo_content_ocr'}
+icon 25: {'type': 'icon', 'bbox': [0.5000745058059692, 0.07007817178964615, 0.5581052303314209, 0.09400325268507004], 'interactivity': True, 'content': ' Home ', 'source': 'box_yolo_content_ocr'}
+icon 26: {'type': 'icon', 'bbox': [0.49958744645118713, 0.21772058308124542, 0.557761549949646, 0.24045541882514954], 'interactivity': True, 'content': '8 videos ', 'source': 'box_yolo_content_ocr'}
+icon 27: {'type': 'icon', 'bbox': [0.49998950958251953, 0.19675149023532867, 0.5576074719429016, 0.2196446806192398], 'interactivity': True, 'content': ' Pictures ', 'source': 'box_yolo_content_ocr'}
+icon 28: {'type': 'icon', 'bbox': [0.498816579580307, 0.2386731505393982, 0.5579324960708618, 0.2624618411064148], 'interactivity': True, 'content': ' Trash ', 'source': 'box_yolo_content_ocr'}
+icon 29: {'type': 'icon', 'bbox': [0.5683135986328125, 0.09102392941713333, 0.6284080743789673, 0.2092583179473877], 'interactivity': True, 'content': ' omniparser_runs ', 'source': 'box_yolo_content_ocr'}
+icon 30: {'type': 'icon', 'bbox': [0.5001974105834961, 0.17587344348430634, 0.5576553344726562, 0.19839397072792053], 'interactivity': True, 'content': 'F Music ', 'source': 'box_yolo_content_ocr'}
+icon 31: {'type': 'icon', 'bbox': [0.5003323554992676, 0.11159184575080872, 0.5582901835441589, 0.13530154526233673], 'interactivity': True, 'content': ' Desktop ', 'source': 'box_yolo_content_ocr'}
+icon 32: {'type': 'icon', 'bbox': [0.5003531575202942, 0.0923939049243927, 0.5585864186286926, 0.11336876451969147], 'interactivity': True, 'content': ' project-too-sc.. ', 'source': 'box_yolo_content_ocr'}
+icon 33: {'type': 'icon', 'bbox': [0.7217140197753906, 0.4643256366252899, 0.7642492055892944, 0.5581857562065125], 'interactivity': True, 'content': 'M ', 'source': 'box_yolo_content_ocr'}
+icon 34: {'type': 'icon', 'bbox': [0.5705727934837341, 0.3368016481399536, 0.627899706363678, 0.45272377133369446], 'interactivity': True, 'content': 'omniparse_cli.py ', 'source': 'box_yolo_content_ocr'}
+icon 35: {'type': 'icon', 'bbox': [0.8645323514938354, 0.46402350068092346, 0.9086276292800903, 0.5593259334564209], 'interactivity': True, 'content': 'M ', 'source': 'box_yolo_content_ocr'}
+icon 36: {'type': 'icon', 'bbox': [0.8610650897026062, 0.2114148885011673, 0.9129770398139954, 0.30973806977272034], 'interactivity': True, 'content': 'M ', 'source': 'box_yolo_content_ocr'}
+icon 37: {'type': 'icon', 'bbox': [0.577943742275238, 0.4630998373031616, 0.6210355162620544, 0.5618107914924622], 'interactivity': True, 'content': 'M ', 'source': 'box_yolo_content_ocr'}
+icon 38: {'type': 'icon', 'bbox': [0.49942272901535034, 0.04963518679141998, 0.5583771467208862, 0.07147885113954544], 'interactivity': True, 'content': 'Places ', 'source': 'box_yolo_content_ocr'}
+icon 39: {'type': 'icon', 'bbox': [0.5006365776062012, 0.13412150740623474, 0.5558348894119263, 0.15635450184345245], 'interactivity': True, 'content': ' Documents ', 'source': 'box_yolo_content_ocr'}
+icon 40: {'type': 'icon', 'bbox': [0.9487211108207703, 0.9682130813598633, 0.9788411855697632, 0.9996427893638611], 'interactivity': True, 'content': '12:14 PM ', 'source': 'box_yolo_content_ocr'}
+icon 41: {'type': 'icon', 'bbox': [0.4983712136745453, 0.34196504950523376, 0.5580883026123047, 0.36682918667793274], 'interactivity': True, 'content': ' Recent Locatio... ', 'source': 'box_yolo_content_ocr'}
+icon 42: {'type': 'icon', 'bbox': [0.5571116209030151, 0.04817460477352142, 0.6122877597808838, 0.07279925048351288], 'interactivity': True, 'content': ' OmniParser x ', 'source': 'box_yolo_content_ocr'}
+icon 43: {'type': 'icon', 'bbox': [0.5692899823188782, 0.3011876046657562, 0.6260484457015991, 0.33083975315093994], 'interactivity': True, 'content': 'omnitool ', 'source': 'box_yolo_content_ocr'}
+icon 44: {'type': 'icon', 'bbox': [0.4978582262992859, 0.3643759787082672, 0.5580264925956726, 0.4032650291919708], 'interactivity': True, 'content': ' endeavouros ', 'source': 'box_yolo_content_ocr'}
+icon 45: {'type': 'icon', 'bbox': [0.005656978581100702, 0.057787831872701645, 0.03574615716934204, 0.0779229998588562], 'interactivity': True, 'content': '(base) ', 'source': 'box_yolo_content_ocr'}
+icon 46: {'type': 'icon', 'bbox': [0.8564016222953796, 0.17667172849178314, 0.9138736724853516, 0.20601429045200348], 'interactivity': True, 'content': 'weights ', 'source': 'box_yolo_content_ocr'}
+icon 47: {'type': 'icon', 'bbox': [0.8652490377426147, 0.33837467432022095, 0.9078378677368164, 0.4327555298805237], 'interactivity': True, 'content': 'Currency', 'source': 'box_yolo_content_yolo'}
+icon 48: {'type': 'icon', 'bbox': [0.7863020300865173, 0.21666641533374786, 0.8418466448783875, 0.3019735515117645], 'interactivity': True, 'content': 'a folder for organizing files.', 'source': 'box_yolo_content_yolo'}
+icon 49: {'type': 'icon', 'bbox': [0.9305374026298523, 0.09149127453565598, 0.9856580495834351, 0.17720650136470795], 'interactivity': True, 'content': 'a folder for organizing files.', 'source': 'box_yolo_content_yolo'}
+icon 50: {'type': 'icon', 'bbox': [0.8586486577987671, 0.09166029095649719, 0.9142753481864929, 0.17722530663013458], 'interactivity': True, 'content': 'a folder for organizing files.', 'source': 'box_yolo_content_yolo'}
+icon 51: {'type': 'icon', 'bbox': [0.5685852766036987, 0.21465589106082916, 0.6273180842399597, 0.3031047284603119], 'interactivity': True, 'content': 'a folder for organizing files.', 'source': 'box_yolo_content_yolo'}
+icon 52: {'type': 'icon', 'bbox': [0.7143687009811401, 0.2154552936553955, 0.7703564763069153, 0.30142942070961], 'interactivity': True, 'content': 'a folder.', 'source': 'box_yolo_content_yolo'}
+icon 53: {'type': 'icon', 'bbox': [0.9326839447021484, 0.21127064526081085, 0.9823929071426392, 0.3071866035461426], 'interactivity': True, 'content': 'Currency', 'source': 'box_yolo_content_yolo'}
+icon 54: {'type': 'icon', 'bbox': [0.9368715286254883, 0.3388333022594452, 0.9797521829605103, 0.4415990114212036], 'interactivity': True, 'content': 'Currency', 'source': 'box_yolo_content_yolo'}
+icon 55: {'type': 'icon', 'bbox': [0.6425793766975403, 0.08947455137968063, 0.6989606022834778, 0.2076786309480667], 'interactivity': True, 'content': 'Open File folder', 'source': 'box_yolo_content_yolo'}
+icon 56: {'type': 'icon', 'bbox': [0.6418193578720093, 0.21680645644664764, 0.6989694833755493, 0.30206578969955444], 'interactivity': True, 'content': 'a home or main menu.', 'source': 'box_yolo_content_yolo'}
+icon 57: {'type': 'icon', 'bbox': [0.7931438684463501, 0.46479594707489014, 0.8363849520683289, 0.5585401654243469], 'interactivity': True, 'content': 'Left', 'source': 'box_yolo_content_yolo'}
+icon 58: {'type': 'icon', 'bbox': [0.5017328858375549, 7.728470518486574e-05, 0.5141922235488892, 0.021203411743044853], 'interactivity': True, 'content': 'Image', 'source': 'box_yolo_content_yolo'}
+icon 59: {'type': 'icon', 'bbox': [0.004609338007867336, 0.9664910435676575, 0.02313484251499176, 0.9999722242355347], 'interactivity': True, 'content': 'More options', 'source': 'box_yolo_content_yolo'}
+icon 60: {'type': 'icon', 'bbox': [0.17092666029930115, 0.9693121314048767, 0.1890542060136795, 0.9950035214424133], 'interactivity': True, 'content': 'Properties', 'source': 'box_yolo_content_yolo'}
+icon 61: {'type': 'icon', 'bbox': [0.023178912699222565, 0.9667394161224365, 0.04388357326388359, 0.9992772340774536], 'interactivity': True, 'content': 'Image gallery', 'source': 'box_yolo_content_yolo'}
+icon 62: {'type': 'icon', 'bbox': [0.7920039296150208, 0.33789315819740295, 0.8380196690559387, 0.43921831250190735], 'interactivity': True, 'content': 'Currency', 'source': 'box_yolo_content_yolo'}
+icon 63: {'type': 'icon', 'bbox': [0.7205397486686707, 0.33819228410720825, 0.7650368809700012, 0.4524734914302826], 'interactivity': True, 'content': 'A web browser.', 'source': 'box_yolo_content_yolo'}
+icon 64: {'type': 'icon', 'bbox': [0.044286347925662994, 0.9669262170791626, 0.06429176032543182, 0.9993350505828857], 'interactivity': True, 'content': 'Windows Security', 'source': 'box_yolo_content_yolo'}
+icon 65: {'type': 'icon', 'bbox': [0.06445454061031342, 0.9670752882957458, 0.08574402332305908, 0.99909907579422], 'interactivity': True, 'content': 'Firefox', 'source': 'box_yolo_content_yolo'}
+icon 66: {'type': 'icon', 'bbox': [0.15119688212871552, 0.9690782427787781, 0.16825196146965027, 0.9979615807533264], 'interactivity': True, 'content': 'WhatsApp', 'source': 'box_yolo_content_yolo'}
+icon 67: {'type': 'icon', 'bbox': [0.936516284942627, 0.4642978608608246, 0.9800537824630737, 0.557938277721405], 'interactivity': True, 'content': 'Left', 'source': 'box_yolo_content_yolo'}
+icon 68: {'type': 'icon', 'bbox': [0.5321788787841797, 0.024574466049671173, 0.5536686182022095, 0.04741854593157768], 'interactivity': True, 'content': 'Show More Options', 'source': 'box_yolo_content_yolo'}
+icon 69: {'type': 'icon', 'bbox': [0.649070143699646, 0.3382474184036255, 0.6938112378120422, 0.43893229961395264], 'interactivity': True, 'content': 'Currency', 'source': 'box_yolo_content_yolo'}
+icon 70: {'type': 'icon', 'bbox': [0.08715204149484634, 0.967538595199585, 0.10625439882278442, 0.9986397624015808], 'interactivity': True, 'content': 'Safari', 'source': 'box_yolo_content_yolo'}
+icon 71: {'type': 'icon', 'bbox': [0.12900863587856293, 0.9688241481781006, 0.14842328429222107, 0.9975220561027527], 'interactivity': True, 'content': 'Microsoft 365', 'source': 'box_yolo_content_yolo'}
+icon 72: {'type': 'icon', 'bbox': [0.6494541168212891, 0.46398475766181946, 0.6932443380355835, 0.5579984188079834], 'interactivity': True, 'content': 'Left', 'source': 'box_yolo_content_yolo'}
+icon 73: {'type': 'icon', 'bbox': [0.6493613123893738, 0.5906257629394531, 0.6915587186813354, 0.6865599751472473], 'interactivity': True, 'content': 'Manage Changes', 'source': 'box_yolo_content_yolo'}
+icon 74: {'type': 'icon', 'bbox': [0.4985765516757965, 0.26094815135002136, 0.5581957697868347, 0.28551602363586426], 'interactivity': True, 'content': 'Kerrope', 'source': 'box_yolo_content_yolo'}
+icon 75: {'type': 'icon', 'bbox': [0.10820865631103516, 0.968306839466095, 0.12600421905517578, 0.9978742599487305], 'interactivity': True, 'content': 'Purple', 'source': 'box_yolo_content_yolo'}
+icon 76: {'type': 'icon', 'bbox': [0.7466713190078735, 0.9686598181724548, 0.7739158868789673, 0.9986441731452942], 'interactivity': True, 'content': '1, September, 2024', 'source': 'box_yolo_content_yolo'}
+icon 77: {'type': 'icon', 'bbox': [0.8893810510635376, 0.970712423324585, 0.9013339877128601, 0.9983130693435669], 'interactivity': True, 'content': 'Bluetooth connectivity', 'source': 'box_yolo_content_yolo'}
+icon 78: {'type': 'icon', 'bbox': [0.5771669149398804, 0.5890311598777771, 0.6203586459159851, 0.6911293268203735], 'interactivity': True, 'content': 'Currency', 'source': 'box_yolo_content_yolo'}
+icon 79: {'type': 'icon', 'bbox': [0.8319659233093262, 0.9724445939064026, 0.8414038419723511, 0.9941876530647278], 'interactivity': True, 'content': 'Notifications', 'source': 'box_yolo_content_yolo'}
+icon 80: {'type': 'icon', 'bbox': [0.0031195555347949266, 0.002393754431977868, 0.01124435942620039, 0.016270043328404427], 'interactivity': True, 'content': 'Windows Security', 'source': 'box_yolo_content_yolo'}
+icon 81: {'type': 'icon', 'bbox': [0.9025955200195312, 0.9712108969688416, 0.9116901159286499, 0.9982287883758545], 'interactivity': True, 'content': 'Stocks', 'source': 'box_yolo_content_yolo'}
+icon 82: {'type': 'icon', 'bbox': [0.48849207162857056, 0.0005578359123319387, 0.4966145157814026, 0.018187390640378], 'interactivity': True, 'content': 'Close', 'source': 'box_yolo_content_yolo'}
+icon 83: {'type': 'icon', 'bbox': [0.913589358329773, 0.9715152382850647, 0.9229859113693237, 0.9975833296775818], 'interactivity': True, 'content': 'WiFi', 'source': 'box_yolo_content_yolo'}
+icon 84: {'type': 'icon', 'bbox': [0.5025315284729004, 0.022949162870645523, 0.5200353860855103, 0.04917391762137413], 'interactivity': True, 'content': 'Decrease', 'source': 'box_yolo_content_yolo'}
+icon 85: {'type': 'icon', 'bbox': [0.5207067728042603, 0.02462046965956688, 0.5314115285873413, 0.0472547747194767], 'interactivity': True, 'content': 'Hide', 'source': 'box_yolo_content_yolo'}
+icon 86: {'type': 'icon', 'bbox': [0.4999186396598816, 0.1551673412322998, 0.5566273927688599, 0.17740486562252045], 'interactivity': True, 'content': 'Downcuts', 'source': 'box_yolo_content_yolo'}
+icon 87: {'type': 'icon', 'bbox': [0.8673273921012878, 0.9745489954948425, 0.8768475651741028, 0.9925803542137146], 'interactivity': True, 'content': 'Form', 'source': 'box_yolo_content_yolo'}
+icon 88: {'type': 'icon', 'bbox': [0.8432880640029907, 0.9734617471694946, 0.8530864715576172, 0.9931032061576843], 'interactivity': True, 'content': 'Bold', 'source': 'box_yolo_content_yolo'}
+icon 89: {'type': 'icon', 'bbox': [0.8790922164916992, 0.9738544821739197, 0.8881349563598633, 0.9937831163406372], 'interactivity': True, 'content': 'Sound', 'source': 'box_yolo_content_yolo'}
+icon 90: {'type': 'icon', 'bbox': [0.7739666104316711, 0.9683853387832642, 0.8004100918769836, 0.99857497215271], 'interactivity': True, 'content': '2, September, 2024', 'source': 'box_yolo_content_yolo'}
+icon 91: {'type': 'icon', 'bbox': [0.9700029492378235, 0.01634923554956913, 0.9831827282905579, 0.05024317279458046], 'interactivity': True, 'content': 'Find', 'source': 'box_yolo_content_yolo'}
+icon 92: {'type': 'icon', 'bbox': [0.8554309606552124, 0.9746435284614563, 0.8651931881904602, 0.992972731590271], 'interactivity': True, 'content': 'Signed by S&W', 'source': 'box_yolo_content_yolo'}
+icon 93: {'type': 'icon', 'bbox': [0.9830541610717773, 0.021914424374699593, 0.9956461191177368, 0.049849461764097214], 'interactivity': True, 'content': 'All Sheets', 'source': 'box_yolo_content_yolo'}
+icon 94: {'type': 'icon', 'bbox': [0.5570910573005676, 0.02530648186802864, 0.5661749839782715, 0.04569289833307266], 'interactivity': True, 'content': 'Next', 'source': 'box_yolo_content_yolo'}
+icon 95: {'type': 'icon', 'bbox': [0.9816975593566895, 0.9689642786979675, 0.9945958256721497, 0.9982665777206421], 'interactivity': True, 'content': 'Toggle', 'source': 'box_yolo_content_yolo'}
+icon 96: {'type': 'icon', 'bbox': [0.01345767080783844, 0.001670490368269384, 0.020253628492355347, 0.017098883166909218], 'interactivity': True, 'content': 'Dismiss', 'source': 'box_yolo_content_yolo'}
+icon 97: {'type': 'icon', 'bbox': [0.49904805421829224, 0.30170270800590515, 0.558463454246521, 0.32263046503067017], 'interactivity': True, 'content': 'Next', 'source': 'box_yolo_content_yolo'}
+icon 98: {'type': 'icon', 'bbox': [0.9887844324111938, 0.0, 0.9968002438545227, 0.01762969233095646], 'interactivity': True, 'content': 'Close', 'source': 'box_yolo_content_yolo'}
+icon 99: {'type': 'icon', 'bbox': [0.4793761372566223, 0.00031861200113780797, 0.4868186116218567, 0.018218006938695908], 'interactivity': True, 'content': 'M0,0L9,5 4.5,5z', 'source': 'box_yolo_content_yolo'}
+icon 100: {'type': 'icon', 'bbox': [0.9248908162117004, 0.9721108078956604, 0.9372097849845886, 0.9966129064559937], 'interactivity': True, 'content': 'Toggle Video Editor', 'source': 'box_yolo_content_yolo'}
+icon 101: {'type': 'icon', 'bbox': [0.8008818626403809, 0.9683058857917786, 0.8268168568611145, 0.9983641505241394], 'interactivity': True, 'content': '3, September, 2024', 'source': 'box_yolo_content_yolo'}
+icon 102: {'type': 'icon', 'bbox': [0.48144811391830444, 0.022822968661785126, 0.4944504201412201, 0.0468251071870327], 'interactivity': True, 'content': 'Close', 'source': 'box_yolo_content_yolo'}
+icon 103: {'type': 'icon', 'bbox': [0.944384753704071, 0.022692902013659477, 0.9683361053466797, 0.049442652612924576], 'interactivity': True, 'content': 'Split', 'source': 'box_yolo_content_yolo'}
+icon 104: {'type': 'icon', 'bbox': [0.9774896502494812, 0.0, 0.9874988794326782, 0.0177211444824934], 'interactivity': True, 'content': 'M0,0L9,0 4.5,5z', 'source': 'box_yolo_content_yolo'}
+icon 105: {'type': 'icon', 'bbox': [0.55711829662323, 0.9399195313453674, 0.6356707811355591, 0.9674314856529236], 'interactivity': True, 'content': 'Video-related (⌘⌥⌃)', 'source': 'box_yolo_content_yolo'}
+icon 106: {'type': 'icon', 'bbox': [0.4701424241065979, 0.00025056733284145594, 0.4783884584903717, 0.018018394708633423], 'interactivity': True, 'content': 'Ribbonbon', 'source': 'box_yolo_content_yolo'}
+icon 107: {'type': 'icon', 'bbox': [0.00020362176292110234, 0.9666022658348083, 0.004594521597027779, 0.998978316783905], 'interactivity': True, 'content': 'a stop button.', 'source': 'box_yolo_content_yolo'}

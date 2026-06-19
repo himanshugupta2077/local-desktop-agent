@@ -1,0 +1,36 @@
+icon 0: {'type': 'text', 'bbox': [0.47929686307907104, 0.0020833334419876337, 0.5218750238418579, 0.02013888955116272], 'interactivity': False, 'content': 'python agent.py', 'source': 'box_ocr_content_ocr'}
+icon 1: {'type': 'text', 'bbox': [0.7144531011581421, 0.02777777798473835, 0.780078113079071, 0.04791666567325592], 'interactivity': False, 'content': ' python gradio_demo.py', 'source': 'box_ocr_content_ocr'}
+icon 2: {'type': 'text', 'bbox': [0.001953125, 0.0590277761220932, 0.267578125, 0.08611111342906952], 'interactivity': False, 'content': '(omni) msi:OmniParser (master*) $ python agent.py', 'source': 'box_ocr_content_ocr'}
+icon 3: {'type': 'text', 'bbox': [0.001953125, 0.08263888955116272, 0.10429687798023224, 0.10833333432674408], 'interactivity': False, 'content': 'Goal: open mozilla', 'source': 'box_ocr_content_ocr'}
+icon 4: {'type': 'text', 'bbox': [0.0011718750465661287, 0.1215277761220932, 0.158203125, 0.1493055522441864], 'interactivity': False, 'content': '[1/4] Capturing screenshot....', 'source': 'box_ocr_content_ocr'}
+icon 5: {'type': 'icon', 'bbox': [0.09053917229175568, 0.9648953676223755, 0.11153080314397812, 0.9982497096061707], 'interactivity': True, 'content': 'a software or application related to software or software development.', 'source': 'box_yolo_content_yolo'}
+icon 6: {'type': 'icon', 'bbox': [0.7458750009536743, 0.9661975502967834, 0.7751113176345825, 0.9976591467857361], 'interactivity': True, 'content': '1, September, 2024', 'source': 'box_yolo_content_yolo'}
+icon 7: {'type': 'icon', 'bbox': [0.0047033922746777534, 0.9648823142051697, 0.02422802336513996, 0.9981276392936707], 'interactivity': True, 'content': 'More options', 'source': 'box_yolo_content_yolo'}
+icon 8: {'type': 'icon', 'bbox': [0.06776411831378937, 0.9644308090209961, 0.08995499461889267, 0.9985558986663818], 'interactivity': True, 'content': 'Firefox browser.', 'source': 'box_yolo_content_yolo'}
+icon 9: {'type': 'icon', 'bbox': [0.8962477445602417, 0.9656932353973389, 0.9086911082267761, 0.9992697238922119], 'interactivity': True, 'content': 'Bluetooth connectivity', 'source': 'box_yolo_content_yolo'}
+icon 10: {'type': 'icon', 'bbox': [0.18005073070526123, 0.965831995010376, 0.2002512663602829, 0.9981217980384827], 'interactivity': True, 'content': 'Google Chrome', 'source': 'box_yolo_content_yolo'}
+icon 11: {'type': 'icon', 'bbox': [0.04629189893603325, 0.9645594358444214, 0.06675393879413605, 0.9981884360313416], 'interactivity': True, 'content': 'Image', 'source': 'box_yolo_content_yolo'}
+icon 12: {'type': 'icon', 'bbox': [0.024730127304792404, 0.9648277163505554, 0.046007923781871796, 0.9979942440986633], 'interactivity': True, 'content': 'Image gallery', 'source': 'box_yolo_content_yolo'}
+icon 13: {'type': 'icon', 'bbox': [0.13677231967449188, 0.9660673141479492, 0.1550283133983612, 0.9977290034294128], 'interactivity': True, 'content': 'WhatsApp', 'source': 'box_yolo_content_yolo'}
+icon 14: {'type': 'icon', 'bbox': [0.9100129008293152, 0.9654098749160767, 0.9203149080276489, 0.9994211792945862], 'interactivity': True, 'content': 'Toggle', 'source': 'box_yolo_content_yolo'}
+icon 15: {'type': 'icon', 'bbox': [0.921444296836853, 0.9652191400527954, 0.9323304891586304, 0.999662458896637], 'interactivity': True, 'content': 'WiFi', 'source': 'box_yolo_content_yolo'}
+icon 16: {'type': 'icon', 'bbox': [0.11230511963367462, 0.9651516675949097, 0.13379578292369843, 0.9979565143585205], 'interactivity': True, 'content': 'iTunes', 'source': 'box_yolo_content_yolo'}
+icon 17: {'type': 'icon', 'bbox': [0.1583472490310669, 0.9655241370201111, 0.17845085263252258, 0.9975926876068115], 'interactivity': True, 'content': 'Image', 'source': 'box_yolo_content_yolo'}
+icon 18: {'type': 'icon', 'bbox': [0.9334724545478821, 0.9654859900474548, 0.9440473318099976, 0.9992285966873169], 'interactivity': True, 'content': 'M0,0L9,0 4.5,5z', 'source': 'box_yolo_content_yolo'}
+icon 19: {'type': 'icon', 'bbox': [0.872829794883728, 0.965525209903717, 0.8833133578300476, 0.9988310933113098], 'interactivity': True, 'content': 'New', 'source': 'box_yolo_content_yolo'}
+icon 20: {'type': 'icon', 'bbox': [0.9792974591255188, 0.9653703570365906, 0.9959508776664734, 0.9988678097724915], 'interactivity': True, 'content': 'Maximize', 'source': 'box_yolo_content_yolo'}
+icon 21: {'type': 'icon', 'bbox': [0.8845388293266296, 0.9658092856407166, 0.8953397870063782, 0.9990578293800354], 'interactivity': True, 'content': 'Toggle Audio', 'source': 'box_yolo_content_yolo'}
+icon 22: {'type': 'icon', 'bbox': [0.8356591463088989, 0.9683479070663452, 0.8463841676712036, 0.9948790669441223], 'interactivity': True, 'content': 'Notifications', 'source': 'box_yolo_content_yolo'}
+icon 23: {'type': 'icon', 'bbox': [0.9470853805541992, 0.96486496925354, 0.9764259457588196, 0.9989585280418396], 'interactivity': True, 'content': '1,36,5:AM,18/06/26', 'source': 'box_yolo_content_yolo'}
+icon 24: {'type': 'icon', 'bbox': [0.8599691390991211, 0.9655888080596924, 0.8716966509819031, 0.9985830783843994], 'interactivity': True, 'content': 'Siri', 'source': 'box_yolo_content_yolo'}
+icon 25: {'type': 'icon', 'bbox': [0.775094211101532, 0.9657585024833679, 0.802049994468689, 0.998139500617981], 'interactivity': True, 'content': '2, September, 2024', 'source': 'box_yolo_content_yolo'}
+icon 26: {'type': 'icon', 'bbox': [0.8030475378036499, 0.9664438962936401, 0.8284378051757812, 0.9973013997077942], 'interactivity': True, 'content': '3, September, 2024', 'source': 'box_yolo_content_yolo'}
+icon 27: {'type': 'icon', 'bbox': [0.8484035730361938, 0.9658198952674866, 0.8586406707763672, 0.9974310398101807], 'interactivity': True, 'content': 'Subscript', 'source': 'box_yolo_content_yolo'}
+icon 28: {'type': 'icon', 'bbox': [0.9804267883300781, 0.0015523990150541067, 0.9888076782226562, 0.019554948434233665], 'interactivity': True, 'content': 'Diamond', 'source': 'box_yolo_content_yolo'}
+icon 29: {'type': 'icon', 'bbox': [0.9901350140571594, 0.001191046554595232, 0.9987564086914062, 0.020979253575205803], 'interactivity': True, 'content': 'Close', 'source': 'box_yolo_content_yolo'}
+icon 30: {'type': 'icon', 'bbox': [0.0013904236257076263, 0.002065626671537757, 0.01046748273074627, 0.018681542947888374], 'interactivity': True, 'content': 'Image', 'source': 'box_yolo_content_yolo'}
+icon 31: {'type': 'icon', 'bbox': [0.48692482709884644, 0.025351861491799355, 0.49807748198509216, 0.04818064346909523], 'interactivity': True, 'content': 'Close', 'source': 'box_yolo_content_yolo'}
+icon 32: {'type': 'icon', 'bbox': [0.003426220966503024, 0.14330986142158508, 0.01256763655692339, 0.1662089079618454], 'interactivity': True, 'content': 'Maximize', 'source': 'box_yolo_content_yolo'}
+icon 33: {'type': 'icon', 'bbox': [0.01264449954032898, 0.0022260798141360283, 0.019138818606734276, 0.01818861998617649], 'interactivity': True, 'content': 'Close', 'source': 'box_yolo_content_yolo'}
+icon 34: {'type': 'icon', 'bbox': [0.9701841473579407, 0.0016765197506174445, 0.9789673089981079, 0.0195491760969162], 'interactivity': True, 'content': 'Ribbon', 'source': 'box_yolo_content_yolo'}
+icon 35: {'type': 'icon', 'bbox': [0.00014996380195952952, 0.965557336807251, 0.004576419945806265, 0.9973064661026001], 'interactivity': True, 'content': 'a stop button.', 'source': 'box_yolo_content_yolo'}

@@ -1,0 +1,28 @@
+model:
+  yolo_model_path: weights/icon_detect/model.pt
+  caption_model_name: florence2
+  caption_model_path: weights/icon_caption_florence
+ocr:
+  paragraph: false
+  text_threshold: 0.9
+  use_paddleocr: true
+yolo:
+  box_threshold: 0.05
+  iou_threshold: 0.1
+  img_size: 640
+postprocess:
+  dedup_iou: 0.6
+watch:
+  directory: ./screenshots
+  pattern: '*.png'
+  interval: 2.0
+  output_dir: ./output
+  state_file: ./.omniparser_state.json
+  move_processed_to: null
+  stable_checks: 2
+server:
+  host: 127.0.0.1
+  port: 8765
+output:
+  pretty: true
+log_level: INFO
