@@ -10,6 +10,8 @@ OmniParser CLI
     ↓
 elements.json
     ↓
+Gemini Vision
+    ↓
 Planner
     ↓
 Executor
@@ -17,15 +19,17 @@ Executor
 Single-action version.
 """
 
-import json, time
+import json
+import time
 import subprocess
 from pathlib import Path
+
+from PIL import Image
 
 from screenshot import capture_screen
 from planner import plan_next_action
 from executor import execute
-
-from PIL import Image
+from vision import analyze_screenshot
 
 from debug_stats import snapshot
 
@@ -46,78 +50,124 @@ def parse_screen(image_path: str):
         check=True,
     )
 
-    runs_dir = Path("omniparser_runs")
+    runs_dir = Path(
+        "omniparser_runs"
+    )
 
     latest_run = max(
         runs_dir.iterdir(),
-        key=lambda p: p.stat().st_mtime
+        key=lambda p: p.stat().st_mtime,
     )
 
-    json_file = latest_run / "elements.json"
+    json_file = (
+        latest_run
+        / "elements.json"
+    )
 
     elements = json.loads(
-        json_file.read_text(encoding="utf-8")
+        json_file.read_text(
+            encoding="utf-8"
+        )
     )
 
     return elements
 
+
 def main():
-    snapshot("before_run")
-    print("\n[1/4] Capturing screenshot...")
+
+    # snapshot("before_run")
 
     ARM_DELAY = 5
 
     print(
-        f"\nStarting capturing screenshot in {ARM_DELAY} seconds..."
+        "\n[1/5] Capturing screenshot..."
     )
 
-    for i in range(ARM_DELAY, 0, -1):
+    print(
+        f"\nStarting in "
+        f"{ARM_DELAY} seconds..."
+    )
+
+    for i in range(
+        ARM_DELAY,
+        0,
+        -1,
+    ):
         print(f"{i}...")
         time.sleep(1)
 
     print("Capturing now...")
 
-    screenshot_path = capture_screen()
+    screenshot_path = (
+        capture_screen()
+    )
 
-    img = Image.open(screenshot_path)
+    img = Image.open(
+        screenshot_path
+    )
 
-    # print("\nScreenshot Size:")
-    # print(img.size)
+    print(
+        f"\nScreenshot Size: "
+        f"{img.size[0]}x{img.size[1]}"
+    )
 
-    print("\n[2/4] Parsing screen...\n")
-    elements = parse_screen(screenshot_path)
+    print(
+        "\n[2/5] Parsing screen...\n"
+    )
 
-    print(f"Found {len(elements)} elements")
-    snapshot("after_omniparser")
+    elements = parse_screen(
+        screenshot_path
+    )
 
-    # print("\nDetected Elements:")
-    # print("-" * 80)
+    print(
+        f"Found "
+        f"{len(elements)} elements"
+    )
 
-    # for elem in elements:
+    # snapshot("after_omniparser")
 
-    #     element_id = elem.get("id", "?")
-    #     element_type = elem.get("type", "unknown")
-    #     element_name = elem.get("name", "")
+    print(
+        "\n[3/5] Running Gemini vision...\n"
+    )
 
-        # print(
-        #     f"[{element_id:>3}] "
-        #     f"{element_type:<10} "
-        #     f"{element_name}"
-        # )
+    vision_analysis = (
+        analyze_screenshot(
+            screenshot_path
+        )
+    )
 
-    # print("-" * 80)
+    print(
+        "\n=== GEMINI VISION ==="
+    )
+    print(vision_analysis)
+    print(
+        "=====================\n"
+    )
 
-    print("\n[3/4] Planning action...")
+    print(
+        "\n[4/5] Planning action..."
+    )
 
     action = plan_next_action(
         goal=GOAL,
         elements=elements,
+        vision_analysis=vision_analysis,
     )
 
-    print("\nPlanner Output:")
-    print(json.dumps(action, indent=2))
+    print(
+        "\nPlanner Output:"
+    )
 
-    print("\n[4/4] Executing action...")
+    print(
+        json.dumps(
+            action,
+            indent=2,
+        )
+    )
+
+    print(
+        "\n[5/5] Executing action..."
+    )
 
     execute(
         action=action,
@@ -125,7 +175,8 @@ def main():
     )
 
     print("\nDone.")
-    snapshot("after_run")
+
+    # snapshot("after_run")
 
 
 if __name__ == "__main__":

@@ -12,15 +12,16 @@ OmniParser
     ↓
 Elements JSON
     ↓
+Gemini Vision Analysis
+    ↓
 Planner (Gemma3:4b)
     ↓
 Action JSON
-    ↓
-Executor (future)
 
 Responsibilities:
 - Receive user goal
 - Receive OmniParser elements
+- Receive Gemini screen analysis
 - Ask Gemma what to do next
 - Return a structured action
 
@@ -54,8 +55,6 @@ Available actions:
   "reason":"..."
 }
 
-Use when the goal requires clicking an element.
-
 --------------------------------------------------
 
 2. right_click
@@ -65,8 +64,6 @@ Use when the goal requires clicking an element.
   "target_id":123,
   "reason":"..."
 }
-
-Use when the goal explicitly requires a context menu.
 
 --------------------------------------------------
 
@@ -78,8 +75,6 @@ Use when the goal explicitly requires a context menu.
   "reason":"..."
 }
 
-Use when opening files, folders, or desktop icons.
-
 --------------------------------------------------
 
 4. middle_click
@@ -90,11 +85,19 @@ Use when opening files, folders, or desktop icons.
   "reason":"..."
 }
 
-Use only if explicitly required.
+--------------------------------------------------
+
+5. move_mouse
+
+{
+  "action":"move_mouse",
+  "target_id":123,
+  "reason":"..."
+}
 
 --------------------------------------------------
 
-5. type
+6. type
 
 {
   "action":"type",
@@ -102,13 +105,11 @@ Use only if explicitly required.
   "reason":"..."
 }
 
-Use when text should be typed.
-
 Do NOT include target_id.
 
 --------------------------------------------------
 
-6. keypress
+7. keypress
 
 {
   "action":"keypress",
@@ -130,7 +131,7 @@ right
 
 --------------------------------------------------
 
-7. hotkey
+8. hotkey
 
 {
   "action":"hotkey",
@@ -148,7 +149,7 @@ Examples:
 
 --------------------------------------------------
 
-8. scroll_up
+9. scroll_up
 
 {
   "action":"scroll_up",
@@ -158,7 +159,7 @@ Examples:
 
 --------------------------------------------------
 
-9. scroll_down
+10. scroll_down
 
 {
   "action":"scroll_down",
@@ -168,7 +169,7 @@ Examples:
 
 --------------------------------------------------
 
-10. done
+11. done
 
 {
   "action":"done",
@@ -187,14 +188,12 @@ Rules:
 - If a keyboard-only action can satisfy the goal, prefer it.
 """
 
+
 class PlannerError(Exception):
     pass
 
 
 def _extract_json(text: str) -> dict:
-    """
-    Extract JSON object from model response.
-    """
 
     text = text.strip()
 
@@ -203,7 +202,11 @@ def _extract_json(text: str) -> dict:
     except Exception:
         pass
 
-    match = re.search(r"\{.*\}", text, re.DOTALL)
+    match = re.search(
+        r"\{.*\}",
+        text,
+        re.DOTALL,
+    )
 
     if not match:
         raise PlannerError(
@@ -211,25 +214,107 @@ def _extract_json(text: str) -> dict:
         )
 
     try:
-        return json.loads(match.group())
+        return json.loads(
+            match.group()
+        )
     except Exception as e:
         raise PlannerError(
             f"Invalid JSON returned by model:\n{text}"
         ) from e
 
 
-def _build_prompt(goal: str, elements: list[dict]) -> str:
-    """
-    Convert OmniParser output into planner prompt.
-    """
+def _build_prompt(
+    goal: str,
+    elements: list[dict],
+    vision_analysis: str,
+) -> str:
+
+    BAD_WORDS = [
+        "diamond",
+        "ribbon",
+        "pentagon",
+        "toggle",
+        "toggleoggle",
+        "paragraphics",
+        "bamboo",
+        "rounded rectangle",
+        "purple leaf",
+        "purple flower",
+        "3d modeling",
+        "currency",
+        "speaker",
+        "grass",
+    ]
+
+    filtered_elements = []
+
+    for elem in elements:
+
+        name = str(
+            elem.get("name", "")
+        ).strip()
+
+        if not name:
+            continue
+
+        if len(name) < 2:
+            continue
+
+        if len(name) > 100:
+            continue
+
+        lower = name.lower()
+
+        if any(
+            bad in lower
+            for bad in BAD_WORDS
+        ):
+            continue
+
+        filtered_elements.append(elem)
+
+    MAX_ELEMENTS = 40
+
+    filtered_elements = filtered_elements[
+        :MAX_ELEMENTS
+    ]
+
+    print(
+        f"\nPlanner received "
+        f"{len(elements)} elements"
+    )
+
+    print(
+        f"Planner using "
+        f"{len(filtered_elements)} elements"
+    )
 
     lines = []
 
-    for elem in elements:
+    for elem in filtered_elements:
+
+        elem_id = elem.get("id")
+
+        elem_type = elem.get(
+            "type",
+            "unknown"
+        )
+
+        elem_name = elem.get(
+            "name",
+            ""
+        )
+
+        pixel_center = elem.get(
+            "pixel_center",
+            None,
+        )
+
         lines.append(
-            f"[{elem['id']}] "
-            f"{elem['type']} | "
-            f"{elem['name']}"
+            f"[{elem_id}] "
+            f"{elem_type} | "
+            f"{elem_name} | "
+            f"center={pixel_center}"
         )
 
     element_text = "\n".join(lines)
@@ -238,102 +323,146 @@ def _build_prompt(goal: str, elements: list[dict]) -> str:
 You are a desktop agent planner.
 
 Goal:
+
 {goal}
+
+Gemini Vision Analysis:
+
+{vision_analysis}
 
 Available Elements:
 
 {element_text}
 
-Rules:
+Important:
 
-- Choose exactly ONE action.
-- Use only IDs that exist in the element list.
-- Match the goal against the available elements.
-- Never invent elements.
+- Use BOTH the Gemini vision analysis and the OmniParser elements.
+- Gemini analysis is usually more reliable than element labels.
+- OmniParser labels may be incorrect.
+- If multiple elements have similar names, use the Gemini analysis to identify the correct one.
+- Use only IDs that exist.
 - Never invent IDs.
-- Return JSON only.
+- Never invent elements.
+- Prefer matching visible UI controls.
+- Choose exactly ONE action.
 
-Examples:
+Available Actions:
+
+LEFT CLICK
 
 {{
   "action":"left_click",
-  "target_id":12,
-  "reason":"Firefox matches the goal"
+  "target_id":123,
+  "reason":"..."
 }}
+
+RIGHT CLICK
 
 {{
   "action":"right_click",
-  "target_id":7,
-  "reason":"Open context menu"
+  "target_id":123,
+  "reason":"..."
 }}
+
+DOUBLE CLICK
 
 {{
   "action":"double_click",
-  "target_id":4,
-  "reason":"Open folder"
+  "target_id":123,
+  "reason":"..."
 }}
+
+MIDDLE CLICK
+
+{{
+  "action":"middle_click",
+  "target_id":123,
+  "reason":"..."
+}}
+
+MOVE MOUSE
+
+{{
+  "action":"move_mouse",
+  "target_id":123,
+  "reason":"..."
+}}
+
+TYPE
 
 {{
   "action":"type",
   "text":"hello world",
-  "reason":"Type requested text"
+  "reason":"..."
 }}
+
+KEYPRESS
 
 {{
   "action":"keypress",
   "key":"enter",
-  "reason":"Submit form"
+  "reason":"..."
 }}
+
+HOTKEY
 
 {{
   "action":"hotkey",
   "keys":["ctrl","l"],
-  "reason":"Focus address bar"
+  "reason":"..."
 }}
+
+SCROLL DOWN
 
 {{
   "action":"scroll_down",
   "amount":500,
-  "reason":"Need to move page down"
+  "reason":"..."
 }}
+
+SCROLL UP
 
 {{
   "action":"scroll_up",
   "amount":500,
-  "reason":"Need to move page up"
+  "reason":"..."
 }}
+
+DONE
 
 {{
   "action":"done",
-  "reason":"Goal completed"
+  "reason":"task complete"
 }}
+
+Rules:
+
+1. Return ONLY JSON.
+2. Do not use markdown.
+3. Do not explain outside JSON.
+4. Use only IDs that exist.
+5. Never invent IDs.
+6. Never invent elements.
+7. If the goal clearly requires typing, use "type".
+8. If the goal clearly requires a keyboard shortcut, use "hotkey".
+9. If the goal clearly requires scrolling, use "scroll_up" or "scroll_down".
+10. If the goal is already complete, return "done".
+11. Prefer clicking a matching visible UI element when one exists.
 """
 
 
 def plan_next_action(
     goal: str,
     elements: list[dict],
+    vision_analysis: str,
 ) -> dict[str, Any]:
-    """
-    Main planner API.
-
-    Example:
-
-    action = plan_next_action(
-        goal="Click Google Images",
-        elements=elements
-    )
-    """
 
     prompt = _build_prompt(
         goal=goal,
         elements=elements,
+        vision_analysis=vision_analysis,
     )
 
-    # print("\n========== PROMPT ==========")
-    # print(prompt)
-    # print("============================\n")
-    
     response = ollama.chat(
         model=MODEL,
         messages=[
@@ -351,9 +480,17 @@ def plan_next_action(
         },
     )
 
-    content = response["message"]["content"]
+    content = response[
+        "message"
+    ]["content"]
 
-    action = _extract_json(content)
+    print("\n=== RAW MODEL OUTPUT ===")
+    print(content)
+    print("========================\n")
+
+    action = _extract_json(
+        content
+    )
 
     return action
 
@@ -363,26 +500,38 @@ if __name__ == "__main__":
     sample_elements = [
         {
             "id": 1,
-            "name": "Search Box",
-            "type": "input",
+            "name": "Firefox browser",
+            "type": "icon",
+            "pixel_center": [201, 1414],
         },
         {
             "id": 2,
-            "name": "Google Images",
-            "type": "link",
-        },
-        {
-            "id": 3,
-            "name": "Search Button",
-            "type": "button",
+            "name": "Google Chrome",
+            "type": "icon",
+            "pixel_center": [260, 1414],
         },
     ]
 
-    goal = "Click Google Images"
+    vision_analysis = """
+Visible applications:
+- Firefox taskbar icon
+- Google Chrome taskbar icon
+- Terminal window
+
+Firefox icon is visible on the taskbar.
+"""
+
+    goal = "Click Firefox"
 
     action = plan_next_action(
         goal=goal,
         elements=sample_elements,
+        vision_analysis=vision_analysis,
     )
 
-    print(json.dumps(action, indent=2))
+    print(
+        json.dumps(
+            action,
+            indent=2,
+        )
+    )

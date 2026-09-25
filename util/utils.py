@@ -89,7 +89,7 @@ def get_parsed_content_icon(filtered_boxes, starting_idx, image_source, caption_
             xmin, xmax = int(coord[0]*image_source.shape[1]), int(coord[2]*image_source.shape[1])
             ymin, ymax = int(coord[1]*image_source.shape[0]), int(coord[3]*image_source.shape[0])
             cropped_image = image_source[ymin:ymax, xmin:xmax, :]
-            cropped_image = cv2.resize(cropped_image, (64, 64))
+            cropped_image = cv2.resize(cropped_image, (128, 128))
             croped_pil_image.append(to_pil(cropped_image))
         except:
             continue
@@ -97,7 +97,12 @@ def get_parsed_content_icon(filtered_boxes, starting_idx, image_source, caption_
     model, processor = caption_model_processor['model'], caption_model_processor['processor']
     if not prompt:
         if 'florence' in model.config.name_or_path:
-            prompt = "<CAPTION>"
+            prompt = (
+    "Identify the desktop application, "
+    "button, UI control, website icon, "
+    "or interface element. "
+    "Return only a short label."
+)
         else:
             prompt = "The image shows"
     
@@ -112,7 +117,7 @@ def get_parsed_content_icon(filtered_boxes, starting_idx, image_source, caption_
         else:
             inputs = processor(images=batch, text=[prompt]*len(batch), return_tensors="pt").to(device=device)
         if 'florence' in model.config.name_or_path:
-            generated_ids = model.generate(input_ids=inputs["input_ids"],pixel_values=inputs["pixel_values"],max_new_tokens=20,num_beams=1, do_sample=False)
+            generated_ids = model.generate(input_ids=inputs["input_ids"],pixel_values=inputs["pixel_values"],max_new_tokens=48,num_beams=3, do_sample=False)
         else:
             generated_ids = model.generate(**inputs, max_length=100, num_beams=5, no_repeat_ngram_size=2, early_stopping=True, num_return_sequences=1) # temperature=0.01, do_sample=True,
         generated_text = processor.batch_decode(generated_ids, skip_special_tokens=True)

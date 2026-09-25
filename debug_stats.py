@@ -60,6 +60,13 @@ def process_memory():
             if rss_mb < 50:
                 continue
 
+            try:
+                cmdline = " ".join(
+                    proc.cmdline()
+                )
+            except Exception:
+                cmdline = ""
+
             rows.append(
                 {
                     "pid": proc.info["pid"],
@@ -68,6 +75,7 @@ def process_memory():
                         rss_mb,
                         1,
                     ),
+                    "cmdline": cmdline[:200],
                 }
             )
 

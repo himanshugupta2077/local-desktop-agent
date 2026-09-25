@@ -1,9 +1,20 @@
-import pyautogui
-import time
+from transformers import AutoProcessor, AutoModelForCausalLM
 
-print(pyautogui.size())
+processor = AutoProcessor.from_pretrained(
+    "microsoft/Florence-2-large-ft",
+    trust_remote_code=True
+)
 
-time.sleep(3)
+model = AutoModelForCausalLM.from_pretrained(
+    "microsoft/Florence-2-large-ft",
+    trust_remote_code=True
+)
 
-pyautogui.moveTo(201, 1414, duration=1)
+processor.save_pretrained(
+    "weights/icon_caption_florence_large"
+)
+
+model.save_pretrained(
+    "weights/icon_caption_florence_large"
+)
 
